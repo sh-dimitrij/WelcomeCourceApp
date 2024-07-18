@@ -1,8 +1,11 @@
 /* Главный раздел */
 .main-section {
-    background-color: #424242;
-    color: #2196F3;
-    height: 100vh; /* Займёт всю высоту экрана */
+    background-image: url('../../assets/background-image.png');
+    background-size: 100% 100%; /* Изображение будет масштабироваться так, чтобы оно полностью помещалось в элемент */
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #466278;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,31 +14,32 @@
 }
 
 .main-section img {
-    position: absolute; /* Абсолютное позиционирование внутри .main-section */
-    top: 20vh; /* Расстояние сверху от границы .main-section */
-    left: 50%; /* Положение по горизонтали (по центру) */
-    transform: translateX(-50%); /* Центрирование по горизонтали */
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    width: 13vw; /* Ширина изображения */
-    height: auto; /* Автоматическая высота */
-    display: block; /* Убираем пробелы вокруг изображения */
-    background: #424242;
+    width: 13vw;
+    height: auto;
+    display: block;
+    background: #d9e5d6;
+    background-color: #d9e5d6;
 }
   
-.main-header{
-    font-size: 1.6vw; /* Размер заголовка */
-    margin: 0; /* Убираем внешние отступы у заголовка */
+.main-header {
+    font-size: 1.6vw;
+    margin: 0;
 }
+
 /* Белый фон */
 .new-section {
     background: white;
     border-radius: 25px 25px 0 0;
-    padding: 5vh 4.9vw; /* Адаптивные отступы */
-    /* padding: 20px; */
+    padding: 5vh 4.9vw;
     padding-top: 100px;
-    padding-bottom: 100px; /* Добавляем нижний отступ */
+    padding-bottom: 100px;
     width: 90%;
-    margin: 0 auto; /* Центрируем секцию */
+    margin: 0 auto;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     transition: top 0.3s ease;
     display: flex;
@@ -44,110 +48,201 @@
     justify-content: center;
 }
 
-/* Обновляем стиль контейнера карточек */
+/* Стили для заголовков */
+.new-section-header, .new-section-footer {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2vh;
+    font-size: 44pt;
+    color: #000000;
+    font-weight: bold;
+}
+
+.new-section-header h1 {
+    color: #000000;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.new-section-footer h2 {
+    color: #000000;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+
+/* Контактная секция */
+.contact-section {
+    width: 100%;
+    text-align: center;
+    margin-top: 5vh;
+    padding: 5vh 0;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h2 {
+    margin-bottom: 1vh;
+    font-size: 2.5vw;
+    color: #495f48;
+}
+
+.contact-section p {
+    margin: 0.5vh 0;
+    font-size: 1.5vw;
+    color: #495f48;
+}
+
 .new-section-content {
     text-align: center;
-    width: 100%; /* Заполняем всю доступную ширину */
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-  
+
 /* Карточки */
 .card {
-    background-color: #a89e9e;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background-color: #9cbb9b;
+    border: 1vh solid #799278;
+    border-radius: 4vh;
     padding: 1vw;
-    margin: 1vw; /* Уменьшенный отступ снаружи карточки */
-    width: 25vw; /* Увеличенная фиксированная ширина карточек */
-    height: 16vw; /* Установленная фиксированная высота карточек */
-    display: flex; /* Включаем flexbox */
-    flex-direction: column; /* Располагаем элементы вертикально */
-    position: relative; /* Для позиционирования кнопки */
-    vertical-align: top; /* Выровнять карточки по верхнему краю */
+    margin: 1vw;
+    width: 22vw;
+    height: 22vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    vertical-align: top;
     display: inline-block;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.8s;
-    border-radius: 15px;
+    padding-bottom: 5vh;
 }
-  
-/* Добавить тень при наведении */
-.card:hover {
-    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.9);
-}
-  
+
+/* .card:hover {
+    box-shadow: 0 7px 14px 0 rgba(0, 0, 0, 0.9);
+} */
+
 .card h4 {
-    text-align: center; /* Центрируем текст по горизонтали */
-    font-size: 2.4vw; /* Увеличиваем размер текста заголовка */
+    text-align: center;
+    color: #ffffff;
+    font-size: 20pt;
+    font-weight: 100;
 }
-  
+
 .btn-link {
     text-decoration: none;
-    color: #ffffff; /* Цвет текста кнопки */
+    color: #000000;
     padding: 0.6vw 1.2vw;
     border-radius: 20px;
-    background-color: #2196F3; /* Цвет фона кнопки */
-    position: absolute; /* Абсолютное позиционирование */
-    bottom: 1vw; /* Расстояние от нижней границы карточки */
+    width: 15vw;
+    background-color: #d7f580;
+    border: 1px solid #000000; /* Тонкая черная обводка кнопки */
+    position: absolute;
+    bottom: 1vw;
     left: 50%;
-    transform: translateX(-50%); /* Центрируем кнопку по горизонтали */
-    font-size: 2vw; /* Увеличиваем размер текста заголовка */
+    transform: translateX(-50%);
+    font-size: 2vw;
+    font-family: Arial, sans-serif;
+    border-radius: 2vh;
+    transition: box-shadow 0.5s ease; /* Переход для тени */
 }
-  
-/* Фиксированная кнопка */
+
+.btn-link:hover {
+    border: 1px solid #000000; /* Сохраняем тонкую обводку при наведении */
+    box-shadow: 0 0.5vh 2vh 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+}
+
 .fixed-button {
     position: fixed;
-    bottom: 2vh; /* Положение снизу */
+    bottom: 2vh;
     left: 50%;
-    transform: translateX(-50%); /* Выравнивание по центру */
-    background-color: #007bff;
+    transform: translateX(-50%);
+    background-color: #c5e96e;
     border: none;
     color: white;
-    padding: 1vw 2vw; /* Адаптивные отступы */
+    padding: 1vw 2vw;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1.7vw;
+    font-size: 24pt;
     cursor: pointer;
-    border-radius: 12px;
-    z-index: 1000; /* Чтобы кнопка была выше других элементов */
-    opacity: 0; /* Кнопка изначально невидима */
-    transition: opacity 2s ease, font-size 0.3s ease; /* Плавное появление */
+    border-radius: 6vh;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 2s ease, font-size 0.3s ease;
 }
-  
+
 .fixed-button.show {
     display: block;
     opacity: 1;
 }
 
-/* Медиа-запросы для мобильных устройств */
-@media (max-width: 600px) {
-    .fixed-button {
-        font-size: 4vw; /* Увеличиваем размер текста на мобильных устройствах */
-        padding: 2.5vw 5vw; /* Увеличиваем размер кнопки на мобильных устройствах */
-    }
+.fixed-button:hover {
+    box-shadow: 0 0.5vh 2vh 0 rgba(0, 0, 0, 0.7);
+}
 
-    .card {
-        width: 80vw; /* Адаптивная ширина карточек на мобильных устройствах */
-        height: auto; /* Автоматическая высота карточек на мобильных устройствах */
-    }
-
-    .card h4 {
-        font-size: 4vw; /* Увеличенный размер текста заголовка на мобильных устройствах */
-    }
-
-    .btn-link {
-        font-size: 4vw; /* Увеличенный размер текста на мобильных устройствах */
-        padding: 2vw 4vw; /* Увеличенные отступы на мобильных устройствах */
+/* Мобильные стили */
+@media screen and (max-width: 650px) {
+    .main-section {
+        height: 100vh;
+        padding: 2.5vh 1.67vw;
     }
 
     .main-section img {
-        width: 30vw; /* Увеличенная ширина изображения на мобильных устройствах */
+        width: 30vw;
+        height: auto;
     }
 
     .main-header {
-        font-size: 6vw; /* Увеличенный размер заголовка на мобильных устройствах */
+        font-size: 8pt;
+    }
+
+    .new-section {
+        width: 100%;
+        padding: 2.5vh 1.67vw;
+        padding-top: 7vh;
+        padding-bottom: 7.5vh;
+    }
+
+    .new-section-header, .new-section-footer {
+        font-size: 12pt;
+        margin-bottom: 1vh;
+    }
+
+    .contact-section {
+        padding: 3vh 0;
+    }
+
+    .contact-section h2 {
+        font-size: 14pt;
+    }
+
+    .contact-section p {
+        font-size: 10pt;
+    }
+
+    .card {
+        width: 100%;
+        height: 30vw;
+        margin: 1.25vh auto;
+    }
+
+    .card h4 {
+        text-align: center;
+        font-size: 9pt;
+    }
+
+    .btn-link {
+        padding: 1vw 3vw;
+        border-radius: 1vh; /* Установка прямых краев */
+        font-size: 9pt;
+    }
+
+    .fixed-button {
+        font-size: 9pt;
+        padding: 1.25vh 3vw;
     }
 }

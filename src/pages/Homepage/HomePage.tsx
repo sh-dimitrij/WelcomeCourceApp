@@ -39,6 +39,9 @@ const Homepage: React.FC = () => {
 
       {/* New Section to Appear on Scroll with Cards and Button */}
       <div className="new-section" id="new-section">
+        <div className="new-section-header">
+          <h1>поступи на бюджет в топовый вуз!</h1>
+        </div>
         <div className="new-section-content">
           <div className="album">
             <div className="container">
@@ -55,9 +58,16 @@ const Homepage: React.FC = () => {
             </div>
           </div>
         </div>
+        <div className="new-section-footer">
+          <h2>о нас</h2>
+        </div>
+        <div className="contact-section">
+          <h2>Контакты разработчиков</h2>
+          <p>Email: mail@ex.ru</p>
+          <p>Телефон: +7 999 999 99 99</p>
+          <p>Design by Pushkareva</p>
+        </div>
       </div>
-
-      {/* Fixed button, initially hidden */}
       <a href="https://cs11.pikabu.ru/post_img/big/2020/04/18/6/1587203460178710714.png" target="_blank" rel="noopener noreferrer" className="fixed-button">
         Перейти на платформу
       </a>

@@ -1,75 +1,91 @@
 /* PageInfo.css */
 .page-info {
-  background-color: #424242; /* Цвет фона основного блока */
+  background-color: #ffffff; /* Цвет фона основной страницы */
   padding: 2vw;
-  color: #ffffff; /* Цвет текста */
-  border-radius: 8px;
-  margin: 2vw auto; /* Центрирование по горизонтали с отступами */
-  width: 80%; /* Ширина основного блока */
+  color: #000000; /* Черный цвет текста */
   max-width: 100vw; /* Максимальная ширина */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
-  position: relative; /* Относительное позиционирование */
+  
 }
 
 .back-link {
-  color: #ffffff;
-  background-color: #2196F3; /* Цвет фона кнопки */
+  color: #000000; /* Черный цвет текста */
+  background-color: #c5e96e;
+  border: none;
   text-decoration: none;
-  position: absolute; /* Абсолютное позиционирование */
-  top: 1vw; /* Отступ сверху */
-  left: 1vw; /* Отступ слева */
   padding: 1vw 2vw;
-  border-radius: 5px;
-  display: inline-block;
-  font-size: 1.5vw; /* Адаптивный размер шрифта */
+  border-radius: 5vh;
+  font-size: 24pt;
+  cursor: pointer;
+  display: inline-block; /* Превращаем в блочный элемент */
+  width: fit-content; /* Ширина кнопки будет зависеть от содержимого */
+  margin: 0 auto; /* Автоматический отступ слева и справа для центрирования */
+  transition: box-shadow 0.5s ease; /* Переход для тени */
+  
+}
+
+.back-link:hover {
+  box-shadow: 0 0.5vh 2vh 0 rgba(0, 0, 0, 0.7);
 }
 
 .course-info {
-  background-color: #ffffff; /* Цвет фона карточки с информацией о курсе */
-  padding: 5%; /* Адаптивные отступы */
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
-  margin-top: 5vw; /* Отступ сверху от кнопки "На главную" */
-  text-align: center; /* Центрирование содержимого по горизонтали */
+  text-align: left; /* Выравнивание текста по левому краю */
 }
 
-.course-info h4 {
-  margin-top: 0; /* Убираем верхний отступ у заголовка */
-  font-size: 2vw; /* Адаптивный размер шрифта */
+.course-info h1 {
+  font-size: 50pt; /* Адаптивный размер шрифта */
+  color: #000000;
+  margin: 2vw 0; /* Отступы сверху и снизу */
 }
 
 .course-info p {
-  font-size: 1.5vw; /* Адаптивный размер шрифта */
+  font-size: 20pt; /* Адаптивный размер шрифта */
+  margin: 1vw 0; /* Отступы сверху и снизу */
 }
 
-/* Фиксированная кнопка */
-.fixed-button-2 {
-  position: fixed;
-  bottom: 2vw; /* Положение снизу */
-  left: 50%;
-  transform: translateX(-50%); /* Выравнивание по центру */
-  background-color: #007bff;
+.price {
+  font-size: 2vw; /* Размер шрифта для стоимости */
+  font-weight: bold; /* Жирный шрифт */
+}
+
+.welcome-image {
+  width: 10vw; /* Ширина иконки */
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: 2vw; /* Отступ справа */
+}
+
+.platform-button {
+  background-color: #c5e96e;
   border: none;
   color: white;
-  padding: 1.5vw 3vw; /* Адаптивные отступы */
+  padding: 1vw 2vw;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 1.5vw; /* Адаптивный размер шрифта */
+  display: block; /* Используем блочный элемент для центрирования */
+  width: fit-content; /* Ширина кнопки будет зависеть от содержимого */
+  margin: 0 auto; /* Автоматический отступ слева и справа для центрирования */
+  font-size: 24pt; /* Адаптивный размер шрифта */
   cursor: pointer;
-  border-radius: 12px;
-  z-index: 1000; /* Чтобы кнопка была выше других элементов */
+  border-radius: 5vh;
+  margin-top: 2vw; /* Отступ сверху от иконки */
 }
 
 .video-container {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Центрирование содержимого по горизонтали */
   margin-top: 2vh; /* Отступ сверху от информации о курсе */
+}
+
+.video-container iframe {
+  width: 60%; /* Занимает всю доступную ширину контейнера */
+  max-width: 100%; /* Максимальная ширина контейнера */
+  height: 61vh; /* Задаем фиксированную высоту */
 }
 
 /* Медиазапросы для мобильных устройств */
 @media (max-width: 600px) {
-  .course-info h4 {
+  .course-info h1 {
     font-size: 4vw; /* Увеличенный размер шрифта на маленьких экранах */
   }
 
@@ -77,8 +93,9 @@
     font-size: 3vw; /* Увеличенный размер шрифта на маленьких экранах */
   }
 
-  .fixed-button-2 {
-    font-size: 4vw; /* Увеличенный размер шрифта на маленьких экранах */
-    padding: 2.5vw 5vw; /* Увеличенные отступы на маленьких экранах */
+  .platform-button {
+    font-size: 3vw; /* Увеличенный размер шрифта на маленьких экранах */
+    padding: 1.5vw 3vw; /* Увеличенные отступы на маленьких экранах */
+    margin-top: 3vw; /* Увеличенный отступ сверху на маленьких экранах */
   }
 }
