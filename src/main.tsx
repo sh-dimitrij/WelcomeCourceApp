@@ -10,8 +10,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/page_info/:processId" element={<PageInfo />} />
+        <Route path="/WelcomeCourceApp/" element={<Homepage />} />
+        <Route path="/WelcomeCourceApp/page_info/:processId" element={<PageInfo />} />
       </Routes>
     </Router>
   </React.StrictMode>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Cources } from '../../modules/data';
 import './HomePage.css';
-import welcomeImage from '../../assets/ikonka.png'; // Путь к изображениюы
+import welcomeImage from '../../assets/ikonka.png';
 
 const Homepage: React.FC = () => {
   useEffect(() => {
@@ -47,7 +47,7 @@ const Homepage: React.FC = () => {
                   <div key={offer.id} className="card">
                     <h4><b>{offer.title}</b></h4>
                     <div className="linking">
-                      <Link to={`/page_info/${offer.id}`} className="btn-link">Подробнее</Link>
+                      <Link to={`/WelcomeCourceApp/page_info/${offer.id}`} className="btn-link">Подробнее</Link>
                     </div>
                   </div>
                 ))}
