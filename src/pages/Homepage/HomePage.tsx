@@ -1,65 +1,98 @@
-import React, { useEffect } from 'react';
+// src/pages/HomePage.tsx
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Cources } from '../../modules/data';
+import { Cources } from '../../modules/data'; // Убедитесь, что путь правильный
 import './HomePage.css';
-import welcomeImage from '../../assets/ikonka.png';
+import logo from '../../assets/logo.svg';
+import fingram from '../../assets/ak-fin-gram.svg';
+import LightningIcon from '../../assets/moln.svg'; // Импортируйте иконку молнии
+import DeveloperSwiper from './DeveloperSwiper.tsx';
+import { developers } from '../../modules/developers.ts'; 
 
 const Homepage: React.FC = () => {
+  const [showButton, setShowButton] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const newSection = document.querySelector('.new-section') as HTMLElement;
-      const fixedButton = document.querySelector('.fixed-button') as HTMLElement;
+      const mainSection = document.querySelector('.main-section') as HTMLElement;
+
+      if (!newSection || !mainSection) return;
+
       const scrollPosition = window.scrollY;
-      const threshold = newSection?.offsetTop - window.innerHeight || 0;
+      const viewportHeight = window.innerHeight;
+      const newSectionTop = newSection.getBoundingClientRect().top + scrollPosition;
 
-      if (scrollPosition >= threshold) {
-        fixedButton?.classList.add('show');
+      // Логика затемнения главной секции
+      const distanceToNewSection = Math.max(0, newSectionTop - scrollPosition);
+      const maxOpacityDistance = viewportHeight; // Максимальное расстояние для максимального затемнения
+      const opacity = Math.min(1, 1 - (distanceToNewSection / maxOpacityDistance));
+
+      // Обновляем стиль псевдоэлемента ::after
+      mainSection.style.setProperty('--main-section-darkness', `rgba(0, 0, 0, ${opacity})`);
+
+      // Логика показа кнопки
+      if (scrollPosition + viewportHeight > newSectionTop * 1.1) {
+        setShowButton(true);
       } else {
-        fixedButton?.classList.remove('show');
-      }
-
-      if (scrollPosition === 0) {
-        fixedButton?.classList.remove('show');
+        setShowButton(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
     <div>
-      {/* Main Section with Background 1 */}
+      {/* Главная секция */}
       <div className="main-section">
-        <img src={welcomeImage} alt="Welcome Image" className="welcome-image" />
-        <div className="main-header">
-          <h1>Добро пожаловать на нашу платформу!</h1>
-        </div>
+        <img src={logo} alt="Logo" className="welcome-image" />
+        <img src={fingram} alt="Academy Fin Gram" className="afg" />
       </div>
 
-      {/* New Section to Appear on Scroll with Cards and Button */}
-      <div className="new-section" id="new-section">
+      {/* Новая секция */}
+      <div className="new-section">
         <div className="new-section-header">
-          <h1>поступи на бюджет в топовый вуз!</h1>
+          <>поступи на бюджет в топовый вуз!</>
         </div>
         <div className="new-section-content">
           <div className="album">
             <div className="container">
               <div className="row">
                 {Cources.map((offer) => (
-                  <div key={offer.id} className="card">
-                    <h4><b>{offer.title}</b></h4>
-                    <div className="linking">
-                      <Link to={`/WelcomeCourceApp/page_info/${offer.id}`} className="btn-link">Подробнее</Link>
+                  <React.Fragment key={offer.id}>
+                    <div className="card">
+                      <div className="card-header">
+                        <div className="course-label">Курс по олимпиаде</div>
+                        <div className="new-badge">
+                          <img src={LightningIcon} alt="lightbolt"/>
+                          <span>Новое</span>
+                        </div>
+                      </div>
+                      <div className='card-title'>{offer.title}</div>
+                      <div className="linking">
+                        <Link to={`/WelcomeCourceApp/page_info/${offer.id}`} className="btn-link">Подробнее</Link>
+                      </div>
                     </div>
-                  </div>
+                  </React.Fragment>
                 ))}
               </div>
             </div>
           </div>
         </div>
+
+        
+
         <div className="new-section-footer">
-          <h2>о нас</h2>
+          <>о нас</>
+        </div>
+        {/* Слайдер разработчиков */}
+        <div>
+          <DeveloperSwiper developers={developers} />
         </div>
         <div className="contact-section">
           <h2>Контакты разработчиков</h2>
@@ -68,7 +101,8 @@ const Homepage: React.FC = () => {
           <p>Design by Pushkareva</p>
         </div>
       </div>
-      <a href="https://cs11.pikabu.ru/post_img/big/2020/04/18/6/1587203460178710714.png" target="_blank" rel="noopener noreferrer" className="fixed-button">
+
+      <a href="https://cs11.pikabu.ru/post_img/big/2020/04/18/6/1587203460178710714.png" target="_blank" rel="noopener noreferrer" className={`fixed-button ${showButton ? 'show' : ''}`}>
         Перейти на платформу
       </a>
     </div>

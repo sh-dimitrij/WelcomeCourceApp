@@ -20,7 +20,6 @@
   width: fit-content; /* Ширина кнопки будет зависеть от содержимого */
   margin: 0 auto; /* Автоматический отступ слева и справа для центрирования */
   transition: box-shadow 0.5s ease; /* Переход для тени */
-  
 }
 
 .back-link:hover {
@@ -47,28 +46,33 @@
   font-weight: bold; /* Жирный шрифт */
 }
 
-.welcome-image {
+.ikonka {
   width: 10vw; /* Ширина иконки */
   height: auto;
   display: block;
   margin-left: auto;
   margin-right: 2vw; /* Отступ справа */
+  margin-bottom: 10vh;
 }
 
 .platform-button {
-  background-color: #c5e96e;
+  position: fixed;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #82b784;
   border: none;
+  font-family: 'Lucida Sans Unicode', Arial, sans-serif;
   color: white;
   padding: 1vw 2vw;
   text-align: center;
   text-decoration: none;
-  display: block; /* Используем блочный элемент для центрирования */
-  width: fit-content; /* Ширина кнопки будет зависеть от содержимого */
-  margin: 0 auto; /* Автоматический отступ слева и справа для центрирования */
-  font-size: 24pt; /* Адаптивный размер шрифта */
+  display: inline-block;
+  font-size: 24pt;
   cursor: pointer;
-  border-radius: 5vh;
-  margin-top: 2vw; /* Отступ сверху от иконки */
+  border-radius: 6vh;
+  z-index: 1000;
+  transition: opacity 2s ease, font-size 0.3s ease, visibility 1s ease;
 }
 
 .video-container {
@@ -84,18 +88,55 @@
 }
 
 /* Медиазапросы для мобильных устройств */
-@media (max-width: 600px) {
-  .course-info h1 {
-    font-size: 4vw; /* Увеличенный размер шрифта на маленьких экранах */
+@media screen and (max-width: 650px) {
+  .back-link {
+    padding: 1vw 2vw;
+    border-radius: 2vh;
+    font-size: 14pt;
   }
-
+  .course-info {
+    text-align: left; /* Выравнивание текста по левому краю */
+  }
+  
+  .course-info h1 {
+    padding-top: 3vh;
+    font-size: 20pt; /* Адаптивный размер шрифта */
+  }
+  
   .course-info p {
-    font-size: 3vw; /* Увеличенный размер шрифта на маленьких экранах */
+    font-size: 12pt; /* Адаптивный размер шрифта */
+    margin: 1vw 0; /* Отступы сверху и снизу */
+  }
+  
+  .ikonka {
+    width: 30vw; /* Ширина иконки */
+    height: auto;
+    margin-left: auto;
+    margin-right: 10vw; /* Отступ справа */
+    padding: 3vh 0;
+    margin-bottom: 8vh;
   }
 
   .platform-button {
-    font-size: 3vw; /* Увеличенный размер шрифта на маленьких экранах */
-    padding: 1.5vw 3vw; /* Увеличенные отступы на маленьких экранах */
-    margin-top: 3vw; /* Увеличенный отступ сверху на маленьких экранах */
+    bottom: 3vh;
+    font-size: 15pt;
+    padding: 0; /* Убираем padding */
+    width: 90vw;
+    height: 8vh; /* Можете попробовать другие значения */
+    align-items: center;
+    justify-content: center;
+    line-height: 2.3; /* Устанавливаем line-height для лучшего выравнивания */
+  }
+
+  .video-container {
+    display: flex;
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    margin-top: 2vh; /* Отступ сверху от информации о курсе */
+  }
+  
+  .video-container iframe {
+    width: 90vw; /* Занимает всю доступную ширину контейнера */
+    max-width: 100%; /* Максимальная ширина контейнера */
+    height: 30vh; /* Задаем фиксированную высоту */
   }
 }

@@ -1,31 +1,47 @@
 /* Главный раздел */
 .main-section {
     background-image: url('../../assets/background-image.png');
-    background-size: 100% 100%; /* Изображение будет масштабироваться так, чтобы оно полностью помещалось в элемент */
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #466278;
-    height: 100vh;
+    background-size: 100% 300%; /* или значение, подходящее для вашего случая */
+    background-position: top center; /* Центрируйте фон по горизонтали и размещайте сверху по вертикали */
+    background-repeat: no-repeat; /* Не повторять фон */
+    height: 100vh; /* Высота секции, которую вы хотите показать */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1; /* Должен быть выше нового секции */
 }
 
-.main-section img {
+.main-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-section-darkness, rgba(0, 0, 0, 0)); /* Значение по умолчанию */
+    z-index: 1; /* Должен быть выше содержимого */
+}
+
+.welcome-image {
     position: absolute;
     top: 20vh;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
-    width: 13vw;
+    width: 20vw; /* Увеличиваем ширину логотипа до 20% от ширины контейнера */
     height: auto;
-    display: block;
-    background: #d9e5d6;
-    background-color: #d9e5d6;
 }
-  
+
+.afg {
+    position: absolute;
+    top: 59vh;
+    width: 19vw;
+    height: auto;
+}
+
 .main-header {
     font-size: 1.6vw;
     margin: 0;
@@ -38,34 +54,27 @@
     padding: 5vh 4.9vw;
     padding-top: 100px;
     padding-bottom: 100px;
-    width: 90%;
-    margin: 0 auto;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    transition: top 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 90.1%;
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    transition: top 0.05s ease-in-out;
+    z-index: 2; /* Должен быть выше главного раздела */
+}
+
+.new-section.visible {
+    top: 0;
+    opacity: 1;
 }
 
 /* Стили для заголовков */
 .new-section-header, .new-section-footer {
+    font-family: 'Manrope', sans-serif;
     width: 100%;
     text-align: left;
     margin-bottom: 2vh;
-    font-size: 44pt;
+    font-size: 96pt;
     color: #000000;
-    font-weight: bold;
-}
-
-.new-section-header h1 {
-    color: #000000;
-    font-family: 'Roboto', Arial, sans-serif;
-}
-
-.new-section-footer h2 {
-    color: #000000;
-    font-family: 'Roboto', Arial, sans-serif;
 }
 
 
@@ -74,6 +83,7 @@
     width: 100%;
     text-align: center;
     margin-top: 5vh;
+    margin-bottom: 4vh;
     padding: 5vh 0;
     background-color: #f8f9fa;
     border-radius: 15px;
@@ -102,19 +112,18 @@
 
 /* Карточки */
 .card {
-    background-color: #9cbb9b;
-    border: 1vh solid #799278;
+    background-color: #ccf4a3;
+    border: 1vh solid #ccf4a3;
     border-radius: 4vh;
     padding: 1vw;
     margin: 1vw;
-    width: 22vw;
-    height: 22vh;
+    width: 27vw;
+    height: 45vh;
     display: flex;
     flex-direction: column;
     position: relative;
     vertical-align: top;
     display: inline-block;
-    font-family: 'Roboto', Arial, sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.8s;
     padding-bottom: 5vh;
@@ -124,33 +133,70 @@
     box-shadow: 0 7px 14px 0 rgba(0, 0, 0, 0.9);
 } */
 
-.card h4 {
+.card-title {
     text-align: center;
-    color: #ffffff;
-    font-size: 20pt;
-    font-weight: 100;
+    color: #000000;
+    font-family: 'Manrope', sans-serif;
+    font-size: 40pt;
+    font-weight: 400; /* Regular weight */
+    text-shadow: 0 1vh 1vh rgba(0, 0, 0, 0.3); /* Смещение x, Смещение y, Размытие, Цвет */
 }
+
+/* Новые стили для карточки */
+.card-header {
+    padding-top: 3vh;
+    color: #000000;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16pt;
+    display: flex;
+    justify-content: flex-start; /* Изменено на flex-start */
+    align-items: center;
+    padding-bottom: 4vh;
+}
+
+.course-label {
+    font-size: 14pt;
+    font-family: 'Manrope', sans-serif;
+    margin-right: 1vw; /* Добавим отступ справа */
+}
+
+.new-badge {
+    display: flex;
+    align-items: center;
+    background-color: #fbff48;
+    border-radius: 3vh;
+    padding: 0 1.7vw 0 1vw; /* Увеличьте правый отступ */
+    font-size: 16pt;
+    color: #000000;
+    font-family: 'Lucida Sans Unicode', Arial, sans-serif;
+}
+.new-badge img {
+    margin-right: 0.5vw;
+}
+
+/* Остальные стили... */
+
 
 .btn-link {
     text-decoration: none;
     color: #000000;
     padding: 0.6vw 1.2vw;
     border-radius: 20px;
-    width: 15vw;
+    width: 19vw;
     background-color: #d7f580;
-    border: 1px solid #000000; /* Тонкая черная обводка кнопки */
+    border: 1px solid #000000;
     position: absolute;
     bottom: 1vw;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2vw;
-    font-family: Arial, sans-serif;
+    font-size: 24pt;
+    font-family: 'Lucida Sans Unicode', Arial, sans-serif;
     border-radius: 2vh;
-    transition: box-shadow 0.5s ease; /* Переход для тени */
+    transition: box-shadow 0.5s ease;
 }
 
 .btn-link:hover {
-    border: 1px solid #000000; /* Сохраняем тонкую обводку при наведении */
+    border: 1px solid #000000;
     box-shadow: 0 0.5vh 2vh 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
 }
@@ -160,10 +206,11 @@
     bottom: 2vh;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #c5e96e;
+    background-color: #82b784;
     border: none;
+    font-family: 'Lucida Sans Unicode', Arial, sans-serif;
     color: white;
-    padding: 1vw 2vw;
+    padding: 2vh 1vw;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -172,12 +219,14 @@
     border-radius: 6vh;
     z-index: 1000;
     opacity: 0;
-    transition: opacity 2s ease, font-size 0.3s ease;
+    visibility: hidden;
+    transition: opacity 2s ease, font-size 0.3s ease, visibility 1s ease;
 }
 
 .fixed-button.show {
-    display: block;
+    visibility: visible;
     opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 .fixed-button:hover {
@@ -189,27 +238,35 @@
     .main-section {
         height: 100vh;
         padding: 2.5vh 1.67vw;
+        background-size: 300% 300%; /* или значение, подходящее для вашего случая */
+        background-position: 75% -20%;
     }
 
-    .main-section img {
-        width: 30vw;
+    .welcome-image {
+        top: 30vh;
+        width: 50vw;
+        height: auto;
+    }
+    
+    .afg {
+        top: 55vh;
+        width: 45vw;
         height: auto;
     }
 
-    .main-header {
-        font-size: 8pt;
-    }
-
     .new-section {
-        width: 100%;
+        width: 96%;
         padding: 2.5vh 1.67vw;
         padding-top: 7vh;
         padding-bottom: 7.5vh;
     }
 
-    .new-section-header, .new-section-footer {
-        font-size: 12pt;
+    .new-section-header {
+        font-size: 20pt;
         margin-bottom: 1vh;
+    }
+    .new-section-footer {
+        font-size: 20pt;
     }
 
     .contact-section {
@@ -225,24 +282,79 @@
     }
 
     .card {
-        width: 100%;
-        height: 30vw;
+        width: 70vw;
+        height: 30vh;
         margin: 1.25vh auto;
+    }
+
+    .card-title {
+        font-family: 'Manrope', sans-serif;
+        font-size: 18pt;
+    }
+
+    .card-header {
+        padding-top: 3vh;
+        font-size: 9pt;
+        padding-bottom: 4vh;
+    }
+    
+    .course-label {
+        font-size: 9pt;
+        font-family: 'Manrope', sans-serif;
+        margin-right: 4vw; /* Добавим отступ справа */
+    }
+    
+    .new-badge {
+        display: flex;
+        align-items: center;
+        background-color: #fbff48;
+        border-radius: 3vh;
+        padding: 0 4vw 0 2vw; /* Увеличьте правый отступ */
+        font-size: 9pt;
+        color: #000000;
+        font-family: 'Lucida Sans Unicode', Arial, sans-serif;
+    }
+    .new-badge img {
+        width: 3vw; /* Уменьшите размер значка по ширине */
+        height: auto; /* Сохраняйте пропорции изображения */
+        margin-right: 0.5vw;
     }
 
     .card h4 {
         text-align: center;
-        font-size: 9pt;
+        font-size: 14pt;
     }
 
     .btn-link {
-        padding: 1vw 3vw;
-        border-radius: 1vh; /* Установка прямых краев */
-        font-size: 9pt;
+        padding: 0 13vw;
+        border-radius: 1.5vh;
+        font-family: 'Lucida Sans Unicode', Arial, sans-serif;
+        font-size: 14pt;
+        text-align: center;
+        width: 30vw;
+        height: 5vh;
+        bottom: 2vh;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-
+    .contact-section {
+        width: 100%;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        border-radius: 15px;
+    }
     .fixed-button {
-        font-size: 9pt;
-        padding: 1.25vh 3vw;
+        bottom: 3vh;
+        font-size: 15pt;
+        background-color: #82b784;
+        padding: 0; /* Убираем padding */
+        width: 90vw;
+        height: 8vh; /* Можете попробовать другие значения */
+        align-items: center;
+        justify-content: center;
+        line-height: 2.3; /* Устанавливаем line-height для лучшего выравнивания */
     }
 }

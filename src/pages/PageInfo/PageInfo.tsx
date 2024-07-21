@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Cources } from '../../modules/data';
 import './PageInfo.css'; // Подключаем стили для PageInfo
-import welcomeImage from '../../assets/ikonka.png'; // Иконка
+import welcomeImage from '../../assets/ikonka.svg'; // Иконка
 
 const PageInfo: React.FC = () => {
   const { processId } = useParams<{ processId: string }>(); // Получаем параметр processId из URL
   const courseId = parseInt(processId || '0', 10); // Преобразуем processId в число
 
   const course = Cources.find(item => item.id === courseId); // Находим курс по ID
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Сброс прокрутки на начало страницы
+  }, []);
 
   if (!course) {
     return <div>Invalid process ID</div>; // Обработка случая, если курс не найден
@@ -36,7 +40,7 @@ const PageInfo: React.FC = () => {
         <h1>Стоимость</h1> {/* Большая надпись */}
         <p className="price">13500&#8381;</p> {/* Стоимость курса */}
       </div>
-      <img src={welcomeImage} alt="Welcome Image" className="welcome-image" />
+      <img src={welcomeImage} alt="Ikonka" className="ikonka" />
       <button className="platform-button" onClick={() => window.location.href = 'https://cs11.pikabu.ru/post_img/big/2020/04/18/6/1587203460178710714.png'}>
         Перейти на платформу
       </button>
