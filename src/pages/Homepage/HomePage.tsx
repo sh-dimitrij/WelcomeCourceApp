@@ -1,13 +1,12 @@
-// src/pages/HomePage.tsx
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Cources } from '../../modules/data'; // Убедитесь, что путь правильный
 import './HomePage.css';
 import logo from '../../assets/logo.svg';
 import fingram from '../../assets/ak-fin-gram.svg';
-import LightningIcon from '../../assets/moln.svg'; // Импортируйте иконку молнии
-import DeveloperSwiper from './DeveloperSwiper.tsx';
+import DeveloperSwiper from '../../components/DeveloperSwiper/DeveloperSwiper.tsx';
 import { developers } from '../../modules/developers.ts'; 
+import Cards from '../../components/Cards/Cards.tsx'
+
 
 const Homepage: React.FC = () => {
   const [showButton, setShowButton] = useState(false);
@@ -57,29 +56,13 @@ const Homepage: React.FC = () => {
       {/* Новая секция */}
       <div className="new-section">
         <div className="new-section-header">
-          <>поступи на бюджет в топовый вуз!</>
+          <>Поступи на бюджет в топовый вуз!</>
         </div>
         <div className="new-section-content">
           <div className="album">
             <div className="container">
               <div className="row">
-                {Cources.map((offer) => (
-                  <React.Fragment key={offer.id}>
-                    <div className="card">
-                      <div className="card-header">
-                        <div className="course-label">Курс по олимпиаде</div>
-                        <div className="new-badge">
-                          <img src={LightningIcon} alt="lightbolt"/>
-                          <span>Новое</span>
-                        </div>
-                      </div>
-                      <div className='card-title'>{offer.title}</div>
-                      <div className="linking">
-                        <Link to={`/WelcomeCourceApp/page_info/${offer.id}`} className="btn-link">Подробнее</Link>
-                      </div>
-                    </div>
-                  </React.Fragment>
-                ))}
+                <Cards courses={Cources} />
               </div>
             </div>
           </div>
@@ -94,14 +77,8 @@ const Homepage: React.FC = () => {
         <div>
           <DeveloperSwiper developers={developers} />
         </div>
-        <div className="contact-section">
-          <h2>Контакты разработчиков</h2>
-          <p>Email: mail@ex.ru</p>
-          <p>Телефон: +7 999 999 99 99</p>
-          <p>Design by Pushkareva</p>
-        </div>
+      <div className='entering'></div>
       </div>
-
       <a href="https://cs11.pikabu.ru/post_img/big/2020/04/18/6/1587203460178710714.png" target="_blank" rel="noopener noreferrer" className={`fixed-button ${showButton ? 'show' : ''}`}>
         Перейти на платформу
       </a>

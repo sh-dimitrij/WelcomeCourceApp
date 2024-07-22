@@ -64,7 +64,7 @@
   border: none;
   font-family: 'Lucida Sans Unicode', Arial, sans-serif;
   color: white;
-  padding: 1vw 2vw;
+  padding: 2vh 1vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -114,18 +114,19 @@
     margin-left: auto;
     margin-right: 10vw; /* Отступ справа */
     padding: 3vh 0;
-    margin-bottom: 8vh;
+    margin-bottom: 10vh;
   }
 
   .platform-button {
+    align-items: center;
+    justify-content: center;
     bottom: 3vh;
-    font-size: 15pt;
+    font-size: 1.6em;
+    background-color: #82b784;
     padding: 0; /* Убираем padding */
     width: 90vw;
     height: 8vh; /* Можете попробовать другие значения */
-    align-items: center;
-    justify-content: center;
-    line-height: 2.3; /* Устанавливаем line-height для лучшего выравнивания */
+    line-height: 2.2; /* Устанавливаем line-height для лучшего выравнивания */
   }
 
   .video-container {
