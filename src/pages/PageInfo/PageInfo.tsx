@@ -22,7 +22,7 @@ const PageInfo: React.FC = () => {
     <div className="page-info">
       <Link to="/WelcomeCourceApp/" className="back-link">На главную</Link> {/* Кнопка "На главную" */}
       <div className="course-info">
-        <h1>Узнай <b>как</b> поступить по <b>олимпиаде</b></h1> {/* Большая надпись */}
+        <div className='info-h1'>узнай <b>как</b> поступить по <b>олимпиаде</b></div>
         <div className="video-container">
           <iframe
             src="https://www.youtube.com/embed/your-video-id"
@@ -32,12 +32,12 @@ const PageInfo: React.FC = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <h1>О курсе</h1> {/* Большая надпись */}
+        <div className='info-h1'>о курсе</div>
         <p>Академия финансовой грамотности собрала все важные темы по подготовке к перечневым олимпиадам. Наши ученики уже поступили на такие профили бакалавриата, как “Менеджмент”, “Управление персоналом”, “Бизнес-информатика” в самые престижные вузы страны.</p>
-        <h1>Хочешь также?</h1> {/* Большая надпись */}
+        <div className='info-h1'>хочешь также?</div>
         <p>Присоединяйся к 25-часовому полному курсу по подготовке. На курсе ты освоишь:</p>
         <p>(список тем)</p>
-        <h1>Стоимость</h1> {/* Большая надпись */}
+        <div className='info-h1'>стоимость</div>
         <p className="price">13500&#8381;</p> {/* Стоимость курса */}
       </div>
       <img src={welcomeImage} alt="Ikonka" className="ikonka" />

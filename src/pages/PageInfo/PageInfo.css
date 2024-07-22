@@ -4,7 +4,7 @@
   padding: 2vw;
   color: #000000; /* Черный цвет текста */
   max-width: 100vw; /* Максимальная ширина */
-  
+  font-family: 'Jost', sans-serif;
 }
 
 .back-link {
@@ -30,15 +30,15 @@
   text-align: left; /* Выравнивание текста по левому краю */
 }
 
-.course-info h1 {
+.course-info .info-h1 {
   font-size: 50pt; /* Адаптивный размер шрифта */
   color: #000000;
-  margin: 2vw 0; /* Отступы сверху и снизу */
+  
 }
 
 .course-info p {
   font-size: 20pt; /* Адаптивный размер шрифта */
-  margin: 1vw 0; /* Отступы сверху и снизу */
+  
 }
 
 .price {
@@ -98,7 +98,7 @@
     text-align: left; /* Выравнивание текста по левому краю */
   }
   
-  .course-info h1 {
+  .course-info .info-h1 {
     padding-top: 3vh;
     font-size: 20pt; /* Адаптивный размер шрифта */
   }

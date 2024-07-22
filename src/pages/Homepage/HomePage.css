@@ -50,6 +50,7 @@
 /* Белый фон */
 .new-section {
     background: white;
+    font-family: 'Jost', sans-serif;
     border-radius: 25px 25px 0 0;
     padding: 5vh 4.9vw;
     padding-top: 100px;
